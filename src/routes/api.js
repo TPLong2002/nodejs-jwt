@@ -1,0 +1,21 @@
+import express from "express";
+import test from "../controller/apiController";
+import useRoute from "./user";
+import groupRoute from "./group";
+import roleRoute from "./role";
+import groupRoleRoute from "./groupRole";
+import { checkUserJWT, checkUserPermission } from "../middleware/JWTmdw";
+const router = express.Router();
+const initApiRoutes = (app) => {
+  router.all("*", checkUserJWT, checkUserPermission);
+  router.get("/test", test.test);
+  router.post("/register", test.register);
+  router.post("/login", test.Login);
+  router.get("/logout", test.logout);
+  router.use("/user", useRoute);
+  router.use("/group", groupRoute);
+  router.use("/role", roleRoute);
+  router.use("/grouprole", groupRoleRoute);
+  return app.use("/api/v1/", router);
+};
+export default initApiRoutes;
