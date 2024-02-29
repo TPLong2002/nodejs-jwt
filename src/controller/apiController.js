@@ -1,7 +1,6 @@
 import apiController from "../service/apiService";
 
 const test = async (req, res) => {
-  console.log("req.user");
   return res.json({ message: "hello world", data: "test" });
 };
 
