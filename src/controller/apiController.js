@@ -31,7 +31,7 @@ const Login = async (req, res) => {
     }
     let data = await apiController.login(req.body);
     if (data?.data?.access_token)
-      await res.cookie("token", data.data.access_token, {
+      res.cookie("token", data.data.access_token, {
         httpOnly: true,
       });
     return res
