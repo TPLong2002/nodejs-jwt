@@ -19,7 +19,6 @@ app.use(allowCrossDomain);
 app.use(cors({ credentials: true, origin: true }));
 
 app.get("/", (req, res) => {
-  console.log("cookie check", req.cookies);
   res.send("hello world");
 });
 configViewEngine(app);

@@ -66,6 +66,8 @@ const checkPassword = (Password, hashPassword) => {
 };
 const login = async (data) => {
   try {
+    console.log("data =>", data);
+    console.log(db.User);
     const user = await db.User.findOne({
       where: {
         [Op.or]: [{ email: data.valueLogin }, { phone: data.valueLogin }],
