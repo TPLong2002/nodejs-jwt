@@ -37,7 +37,7 @@ const delUsers = async (req, res) => {
 };
 const getUserById = async (req, res) => {
   try {
-    const data = await apiUserService.getUserById(req.params.id);
+    const data = await apiUserService.getUserById(req.query.id);
     res.json(data);
   } catch (error) {
     return res.status(500).json({ message: error.message, code: -1, data: "" });

@@ -8,6 +8,6 @@ router.get("/account", apiUser.getUserAccount);
 router.post("/add", apiUser.addUser);
 router.delete("/delete", apiUser.delUsers);
 router.post("/update", apiUser.updateUsers);
-router.get("/:id", apiUser.getUserById);
+router.get("/id", apiUser.getUserById);
 
 export default router;

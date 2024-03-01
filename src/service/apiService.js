@@ -36,7 +36,12 @@ const checkPhone = async (phone) => {
 const register = async (data) => {
   try {
     if (await checkEmail(data.email)) {
-      return { status: 400, message: "email is ", code: 3, data: {} };
+      return {
+        status: 400,
+        message: "email already exist ",
+        code: 3,
+        data: {},
+      };
     }
     if (await checkPhone(data.phone)) {
       return { status: 400, message: "phone already exist", code: 3, data: {} };
