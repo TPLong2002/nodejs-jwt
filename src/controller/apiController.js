@@ -30,13 +30,14 @@ const Login = async (req, res) => {
       return res.status(200).json({ message: "password has short", code: 2 });
     }
     let data = await apiController.login(req.body);
-    if (data?.data?.access_token)
+    if (data?.data?.access_token) {
       res.cookie("token", data.data.access_token, {
         httpOnly: true,
       });
-    return res
-      .status(data.status)
-      .json({ message: data.message, code: data.code, data: data.data });
+      return res
+        .status(data.status)
+        .json({ message: data.message, code: data.code, data: data.data });
+    }
   } catch (error) {
     return res.status(500).json({ message: error.message, code: -1 });
   }
