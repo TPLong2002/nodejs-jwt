@@ -54,6 +54,7 @@ const updateUsers = async (req, res) => {
 const getUserAccount = async (req, res) => {
   res.cookie("token", req.token, {
     httpOnly: true,
+    expires: new Date(Date.now() + 90000),
   });
   return res.status(200).json({
     code: 0,

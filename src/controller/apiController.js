@@ -31,6 +31,10 @@ const Login = async (req, res) => {
     }
     let data = await apiController.login(req.body);
     if (data?.data?.access_token) {
+      res.cookie("token", data.data.access_token, {
+        httpOnly: true,
+        expires: new Date(Date.now() + 90000),
+      });
       return res
         .status(data.status)
         .json({ message: data.message, code: data.code, data: data.data });
