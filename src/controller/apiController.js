@@ -29,11 +29,11 @@ const Login = async (req, res) => {
     if (req.body.password.length < 6) {
       return res.status(200).json({ message: "password has short", code: 2 });
     }
+    console.log(req.body.valueLogin);
     let data = await apiController.login(req.body);
     if (data?.data?.access_token) {
       res.cookie("token", data.data.access_token, {
         httpOnly: true,
-        expires: new Date(Date.now() + 90000),
       });
       return res
         .status(data.status)

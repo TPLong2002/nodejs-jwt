@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "sql6687803",
-    "password": "4IiqRjAfJ6",
-    "database": "sql6687803",
-    "host": "sql6.freemysqlhosting.net",
+    "username": "admin",
+    "password": "Long2002",
+    "database": "nodejs",
+    "host": "nodejs.c7qcq2qmy4ze.ap-southeast-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "database_test",
+    "database": "nodejs",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "sql6687803",
-    "password": "4IiqRjAfJ6",
-    "database": "sql6687803",
-    "host": "sql6.freemysqlhosting.net",
+    "username": "admin",
+    "password": "Long2002",
+    "database": "nodejs",
+    "host": "nodejs.c7qcq2qmy4ze.ap-southeast-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }

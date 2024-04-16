@@ -28,30 +28,24 @@ const verifyToken = (token) => {
   });
 };
 function extractToken(req) {
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.split(" ")[0] === "Bearer"
-  ) {
-    return req.headers.authorization.split(" ")[1];
-  } else if (req.query && req.query.token) {
-    return req.query.token;
+  if (req) {
+    return req.split(" ")[1];
+  } else {
+    return null;
   }
-  return null;
 }
 const checkUserJWT = (req, res, next) => {
   if (nonSecurePaths.includes(req.path)) {
     return next();
   }
-  // console.log("token", req.cookies.token);
   const token =
     req.cookies.token ||
     req.headers["x-access-token"] ||
-    extractToken(req) ||
+    extractToken(req.headers["authorization"]) ||
     req.headers["token"] ||
     req.query.token ||
     req.body.token ||
     req.params.token;
-
   if (!token) {
     console.log("No token provided!", req.path);
     return res.status(200).json({
